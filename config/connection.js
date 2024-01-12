@@ -10,7 +10,8 @@ function getDatabase() {
     if(process.env.JAWSDB_URL) {
         return new Sequelize(process.env.JAWSDB_URL);
     }
-    return new Sequelize(process.env.DB_NAME,
+    return new Sequelize(
+        process.env.DB_NAME,
         process.env.DB_USER,
         process.env.DB_PASSWORD, {
             host: 'localhost',
