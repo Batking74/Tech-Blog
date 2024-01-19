@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Delcaring Variables */
+:root {
+  --primary: #ccdad1;
+  --light-dark: #6f6866;
+  --dark: #2c1000;
+}
+
+body {
+  background: var(--primary);
+  font-family: "IBM Plex Sans", sans-serif;
+  color: var(--dark);
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+main {
+  margin: 20px auto;
+  width: 94%;
+}
+
+p {
+  font-size: 1.3rem;
+}
+
+a {
+  color: var(--primary);
+  font-size: 25px;
+  text-decoration: none;
+}
+
+
+/* Header and Navigation Styles */
+header div {
+  display: flex;
+  column-gap: 60px;
+  margin-bottom: 20px;
+}
+
+header {
+  padding: 3% 4%;
+  background-color: var(--dark);
+  color: var(--primary);
+}
+
+h1 {
+  font-size: 3rem;
+  background-color: var(--primary);
+  color: var(--dark);
+  padding: 0 30px;
+  display: inline-block;
+  border-radius: .5rem;
+  box-shadow: 6px 5px var(--light-dark);
+}
+
+
+/* CARDS */
+.card-header {
+  color: var(--primary);
+  background-color: var(--dark);
+  padding: 1.5%;
+}
+
+.card {
+  margin: 0 0 20px 0;
+  border: 3px solid var(--dark);
+}
+
+.card-body {
+  padding: 2.5%;
+}

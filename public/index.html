@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,48 +8,36 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Tech Blog Landing Page">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-  <link rel="stylesheet" href="./Assets/CSS/style.css" />
+  <link rel="stylesheet" href="./Assets/CSS/style copy.css" />
   <title>Tech Blog</title>
 </head>
 
 <body class="flex-column min-100-vh">
-  <header class="hero">
-    <h1 class="app-title"><i class="fab fa-github"></i> Git it Done!</h1>
-    <p>
-      Search for a GitHub user or click on a language to see a list of repositories and how many open issues they have!
-    </p>
+
+  <!-- Header and Navigation -->
+  <header>
+    <div>
+      <a href="#">Home</a>
+      <a href="./HTML/dashboard.html">Dashboard</a>
+      <a href="./HTML/login.html">Login</a>
+    </div>
+    <h1>The Tech Blog</h1>
   </header>
 
-
-  <main class="flex-row justify-space-between">
-    <div class="col-12 col-md-4">
-
-      <div class="card">
-        <h3 class="card-header text-uppercase">Search By User</h3>
-        <form id="user-form" class="card-body">
-          <label class="form-label" for="username">Username</label>
-          <input name="username" id="username" type="text" autofocus="true" class="form-input" />
-          <button type="submit" class="btn">Get User</button>
-        </form>
-      </div>
-
-      <div class="card">
-        <h3 class="card-header text-uppercase">Search By Topic</h3>
-        <div id="language-buttons" class="card-body">
-          <button data-language="javascript" class="btn">JavaScript</button>
-          <button data-language="html" class="btn">HTML</button>
-          <button data-language="css" class="btn">CSS</button>
-        </div>
+  <!-- Main Content -->
+  <main>
+    <div class="card">
+      <h2 class="card-header">Why MVC is so important</h2>
+      <div id="language-buttons" class="card-body">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint vitae veritatis dolore, velit excepturi
+          exercitationem accusantium dolores cum quo tenetur.
+        </p>
       </div>
     </div>
-
-    <div class="col-12 col-md-8">
-      <h2 class="subtitle">Showing Repositories for: <span id="repo-search-term"></span></h2>
-      <div id="repos-container" class="list-group"></div>
     </div>
   </main>
-
-  <script src="./assets/homepage.js"></script>
+  <script src="./Javascript/index.js"></script>
 </body>
+
 </html>

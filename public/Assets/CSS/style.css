@@ -1,37 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --primary: #ccdad1;
   --secondary: #9caea9;
   --tertiary: #788585;
   --light-dark: #6f6866;
-  --dark: #38302e;
-  --border-radius: .3rem;
-}
-
-* {
-  box-sizing: border-box;
+  --dark: #2c1000;
+  --border-radius: .5rem;
 }
 
 body {
-  background-color: var(--primary);
-  margin: 0;
-  padding: 0;
+  background: var(--primary);
   font-family: "IBM Plex Sans", sans-serif;
   color: var(--dark);
   line-height: 1.5;
   font-size: 16px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* h1 {
   font-weight: 700;
   margin: 0;
   color: var(--dark);
   line-height: 1.25;
-}
+} */
 
 main {
   margin: 20px auto;
@@ -42,7 +37,19 @@ p {
   font-size: 1.2rem;
 }
 
- .btn {
+a {
+  color: var(--primary);
+  font-size: 25px;
+  text-decoration: none;
+}
+
+header div {
+  display: flex;
+  column-gap: 60px;
+  margin-bottom: 20px;
+}
+
+.btn {
   font-size: 1.3rem;
   text-decoration:none;
   padding: 6px 5px;
@@ -58,7 +65,7 @@ p {
   transform: translate(-1px, -1px);
 }
 
- .btn:hover {
+.btn:hover {
   color: var(--primary);
   background-color: var(--tertiary);
   transform: translate(0, 0);
@@ -85,7 +92,7 @@ p {
   font-size: 1.2rem;
 }
 
- .btn-back:hover {
+.btn-back:hover {
   color: var(--primary);
   background-color: var(--tertiary);
   transform: translate(0, 0);
@@ -499,5 +506,3 @@ p {
     flex: 0 0 100%;
   }
 }
-
-

@@ -13,7 +13,6 @@ My drive behind embarking on this project stemmed from a strong aspiration to el
 Throughout the development process, I acquired a comprehensive understanding of Sequelize, honing my skills in seamless database interaction. Implementing user authentication using sessions not only bolstered the security aspects of my applications but also broadened my expertise in handling user-related functionalities. The adoption of the Model-View-Controller (MVC) design structure was a significant learning curve, refining my problem-solving skills and contributing to a more organized and maintainable codebase. Successfully deploying the project to Heroku marked a milestone in my continuous learning journey, providing valuable insights into the intricacies of hosting and showcasing my commitment to staying at the forefront of web development practices. Overall, this project has been instrumental in advancing my capabilities as a developer through continuous learning and practical application.
 
 
-
 ## Technologies Used
 - HTML
 - CSS
@@ -21,6 +20,7 @@ Throughout the development process, I acquired a comprehensive understanding of 
 - Node.js
 - Sequelize
 - Handlebars
+
 
 ## Libraries Used
 - bcrypt
@@ -43,6 +43,8 @@ Tests:       1 passed, 1 total
 Snapshots:   0 total
 Time:        1.499 s, estimated 4 s
 ```
+
+
 Deployed Site: https://naz-tech-blog-b1b13db75bbc.herokuapp.com/
 
 GitHub Repo: https://github.com/Batking74/Tech-Blog
