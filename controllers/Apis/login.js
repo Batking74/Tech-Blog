@@ -1,5 +1,6 @@
-// Importing Module
+// Importing Modules/Packages
 const login = require('express').Router();
+const User = require('../../models/User');
 
 
 // Serving up Login Page

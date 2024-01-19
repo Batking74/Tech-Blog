@@ -83,7 +83,7 @@ h1 {
 }
 
 /* Button Styles */
-.btn {
+#btn {
     font-size: 1.3rem;
     padding: 10px 10px;
     width: 100%;
@@ -98,7 +98,7 @@ h1 {
     transform: translate(-1px, -1px);
 }
 
-.btn:hover {
+#btn:hover {
     color: var(--primary);
     background-color: #2c100060;
     cursor: pointer;

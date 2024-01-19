@@ -1,10 +1,10 @@
 // Importing Module
 const signup = require('express').Router();
+const User = require('../../models/User');
 
 
 // Serving up Signup Page
 signup.get('/', (req, res) => {
-    console.log('Hello WORLD!' + req.url);
     res.json('Successful Route!');
 })
 

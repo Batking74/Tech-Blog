@@ -15,8 +15,8 @@ const PORT = process.env.PORT || 3001;
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
+app.use('/Home', controllers);
 app.use(express.json());
-app.use(controllers);
 
 
 // Runs my application locally or deploys on hosting service (Heroku)
