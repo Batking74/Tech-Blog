@@ -15,8 +15,6 @@ route.use('/Signup', signup);
 route.use('/Posts', post);
 route.use('/Dashboard', dashboard);
 
-
-
 route.get('/', withAuth, (req, res) => res.redirect('/Home'));
 
 
