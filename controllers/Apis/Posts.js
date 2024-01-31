@@ -4,9 +4,29 @@ const User = require('../../models/User');
 const post = require('express').Router();
 
 
-// Posts Route
+// Gets all Posts
 post.get('/', (req, res) => {
-    console.log('YAYAYAYYAY')
+    res.json('Successful GET/READ Route!');
+})
+
+
+// Creates a Users Posts
+post.post('/Create', (req, res) => {
+    const { Username, Password } = req.body;
+    res.json('Successful POST/CREATE Route!');
+})
+
+
+// Updates a Users Posts
+post.put('/:id', (req, res) => {
+    const { Username, Password } = req.body;
+    res.json('Successful UPDATE/PUT Route!');
+})
+
+
+// Deletes a Users Posts
+post.delete('/:id', (req, res) => {
+    res.json('Successful Delete Route!');
 })
 
 

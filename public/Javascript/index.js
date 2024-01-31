@@ -1,5 +1,2 @@
-
-async function f() {
-    const res = await fetch('/Posts');
-
-}
+// Importing Modules
+import './helpers/helpers.js';

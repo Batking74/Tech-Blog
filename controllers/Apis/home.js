@@ -1,13 +1,12 @@
 // Importing Modules/Packages
+const { serveWebpage, withAuth } = require('../helpers/helpers');
 const home = require('express').Router();
-const path = require('path');
 
+// Rendering the Home Page for Non-Logged-In Users
+home.get('/', withAuth, (req, res) => serveWebpage(req, res, 'home'));
 
-// Home Route
-home.get('/', (req, res) => {
-    console.log('worrrkkkkedddd!')
-    res.sendFile(path.join(__dirname, '../public/index.html'));
-})
+// Rendering the Dashboard Page for Logged-In Users
+home.get('/:id', (req, res) => serveWebpage(req, res, 'home'));
 
 
 // Exporting Module

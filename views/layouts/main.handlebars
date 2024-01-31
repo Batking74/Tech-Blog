@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+
+  {{!-- Homepage Head --}}
+  {{#if isHomeRoute}}
+    <meta name="description" content="Tech Blog Home Landing Page">
+    <link rel="stylesheet" href="/Assets/CSS/home.css" />
+    <title>Tech Blog</title>
+  {{else}}
+
+    {{!-- Loginpage Head --}}
+    {{#if isLoginRoute}}
+      <meta name="description" content="Tech Blog Login Page">
+      <link rel="stylesheet" href="/Assets/CSS/login.css" />
+      <title>Login</title>
+    {{else}}
+
+      {{!-- Signup Head --}}
+      {{#if isSignupRoute}}
+        <meta name="description" content="Tech Blog Signup Page">
+        <link rel="stylesheet" href="/Assets/CSS/login.css" />
+        <title>Signup</title>
+
+      {{!-- Dashboard Head --}}
+      {{else}}
+        <meta name="description" content="Tech Blog Dashboard Page">
+        <link rel="stylesheet" href="/Assets/CSS/login.css" />
+        <link rel="stylesheet" href="/Assets/CSS/dashboard.css" />
+        <title>Dashboard</title>
+
+      {{/if}}
+    {{/if}}
+  {{/if}}
+</head>
+
+<body class="flex-column min-100-vh">
+  <header>
+    <div>
+      {{!-- Logged in Navigations --}}
+      {{#if isLoggedin}}
+        {{!-- Homepage Nav --}}
+        {{#if isHomeRoute}}
+          <a href="#">Home</a>
+          <a href="/Dashboard/:{{ userID }}">Dashboard</a>
+          <a href="#" id="logout">Logout</a>
+          <a href="#" id="deleteAccount">Delete Account</a>
+
+        {{!-- Dashboard Nav --}}
+        {{else}}
+          <a href="/Home/:{{ userID }}">Home</a>
+          <a href="#">Dashboard</a>
+          <a href="#" id="logout">Logout</a>
+          <a href="#" id="deleteAccount">Delete Account</a>
+        {{/if}}
+
+      {{!-- Not Logged in Navigations --}}
+      {{else}}
+        {{!-- Homepage Nav --}}
+        {{#if isHomeRoute}}
+          <a href="#">Home</a>
+          <a href="/Dashboard">Dashboard</a>
+          <a href="/Login">Login</a>
+        {{else}}
+
+          {{!-- Login Nav --}}
+          {{#if isLoginRoute}}
+            <a href="/Home">Home</a>
+            <a href="/Dashboard">Dashboard</a>
+            <a href="#">Login</a>
+          {{!-- Dashboard Nav --}}
+          {{else}}
+            <a href="/Home">Home</a>
+            <a href="#">Dashboard</a>
+            <a href="/Login">Login</a>
+          {{/if}}
+        {{/if}}
+      {{/if}}
+    </div>
+    {{#if isDashboardRoute}}
+      <h1>Your Dashboard</h1>
+    {{else}}
+      <h1>The Tech Blog</h1>
+    {{/if}}
+  </header>
+
+  <!-- Main Content -->
+  <main>
+      {{{ body }}}
+  </main>
+
+
+  {{!-- NEW Post Button --}}
+  {{#if isDashboardRoute}}
+    <section>
+        <button id="start-new-post-btn">+ New Post</button>
+    </section>
+  {{/if}}
+
+
+  {{!-- Script Files --}}
+  {{!-- Home js File --}}
+  {{#if isHomeRoute}}
+    <script type="module" src="/Javascript/index.js"></script>
+  {{else}}
+
+    {{!-- Login js File --}}
+    {{#if isLoginRoute}}
+      <script src="/Javascript/AccountAccess.js"></script>
+    {{else}}
+    
+      {{!-- Signup js File --}}
+      {{#if isSignupRoute}}
+        <script src="/Javascript/AccountAccess.js"></script>
+
+      {{!-- Dashboard js File --}}
+      {{else}}
+        <script type="module" src="/Javascript/dashboard.js"></script>
+      {{/if}}
+    {{/if}}
+  {{/if}}
+</body>
+</html>

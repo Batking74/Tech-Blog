@@ -1,4 +1,5 @@
 // Importing Modules/Packages
+const { withAuth } = require('./helpers/helpers');
 const dashboard = require('./Apis/dashboard');
 const route = require('express').Router();
 const signup = require('./Apis/signup');
@@ -13,6 +14,10 @@ route.use('/Login', login);
 route.use('/Signup', signup);
 route.use('/Posts', post);
 route.use('/Dashboard', dashboard);
+
+
+
+route.get('/', withAuth, (req, res) => res.redirect('/Home'));
 
 
 

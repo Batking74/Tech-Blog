@@ -1,10 +1,15 @@
 // Importing Modules/Packages
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const { hash, compare } = require('bcrypt');
 
 
 // Creating a new Table
-class User extends Model {}
+class User extends Model {
+    async validatePassword(password) {
+        return await compare(password, this.Password);
+    }
+}
 
 User.init({
     id: {
@@ -25,8 +30,9 @@ User.init({
 },
 {
     hooks: {
-        beforeCreate: async (newPost) => {
-
+        beforeCreate: async (newUser) => {
+            const hashedPassword = await hash(newUser.Password, 10);
+            newUser.Password = hashedPassword;
         }
     },
     sequelize,
