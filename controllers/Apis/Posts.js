@@ -11,8 +11,8 @@ post.get('/', (req, res) => {
 
 
 // Creates a Users Posts
-post.post('/Create', (req, res) => {
-    const { Username, Password } = req.body;
+post.post('/Api/Create', (req, res) => {
+    const { Title, Content } = req.body;
     res.json('Successful POST/CREATE Route!');
 })
 

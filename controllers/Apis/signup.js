@@ -8,7 +8,7 @@ signup.get('/', withAuth, (req, res) => serveWebpage(req, res, 'signup'));
 
 
 // Creates User Accounts
-signup.post('/', async (req, res) => {
+signup.post('/Api', async (req, res) => {
     const { Username, Password } = req.body;
     const userExists = await User.findOne({ where: { Username: Username }});
 

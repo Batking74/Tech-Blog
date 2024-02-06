@@ -8,7 +8,7 @@ login.get('/', withAuth, (req, res) => serveWebpage(req, res, 'login'));
 
 
 // Logs Users in to their Accounts
-login.post('/', async (req, res) => {
+login.post('/Api', async (req, res) => {
     const { Username, Password } = req.body;
 
     // Checking if user is already logged in
@@ -36,7 +36,7 @@ login.post('/', async (req, res) => {
 
 
 // Logs Users out of their Accounts
-login.post('/logout', (req, res) => {
+login.post('/Api/logout', (req, res) => {
     req.session.destroy((error) => {
         if (error) {
             console.error('Error destroying session:', err);
@@ -48,7 +48,7 @@ login.post('/logout', (req, res) => {
 
 
 // Deletes User Accounts
-login.delete('/:id', async (req, res) => {
+login.delete('/Api/Delete/:id', async (req, res) => {
     const userID = parseInt(req.params.id.replace(':', ''));
     try {
         const deletedUser = await User.destroy({ where: { id: userID } });

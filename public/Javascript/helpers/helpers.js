@@ -8,13 +8,8 @@ if(logoutBtn) {
         e.preventDefault();
         const isValid = confirm('Are you sure you would like to logout of your account?');
         if (isValid) {
-            const response = await fetch('/Login/logout', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'}
-            })
-            if(response.ok) {
-                location.replace(response.url);
-            }
+            const response = await fetch('/Login/Api/logout', getOptions('POST'));
+            if(response.ok) location.replace(response.url);
         }
     })
 }
@@ -28,14 +23,64 @@ if(deleteAccountBtn) {
         if (isValid) {
             const url = location.href;
             const id = url.substring(url.indexOf('/:') + 2);
-            const response = await fetch(`/Login/:${id}`, {
-                method: 'DELETE',
-                headers: {'Content-Type': 'application/json'}
-            })
-            console.log(response)
-            if(!response.ok) {
-                location.replace(response.url);
-            }
+            const response = await fetch(`/Login/Api/Delete/:${id}`, getOptions('DELETE'));
+            if(!response.ok) location.replace(response.url);
         }
     })
+}
+
+
+// Validates all User inputs to make sure they arent empty
+export function dataIsNotValid({ value1, value2, value1Msg, value2Msg }) {
+    if(value1 === '') {
+        alert(value1Msg);
+        return true;
+    }
+    else if(value2 === '') {
+        alert(value2Msg);
+        return true;
+    }
+    return false;
+}
+
+
+// Changes the name of only vital keys needed to make a request to the server, and deletes data that isn't needed
+export function changeVitalKeyDataName(data, value1NewName, value2NewName) {
+    data[value1NewName] = data['value1'];
+    data[value2NewName] = data['value2'];
+    delete data.value1;
+    delete data.value2;
+    delete data.value1Msg;
+    delete data.value2Msg;
+    return JSON.stringify(data);
+}
+
+
+// Returns POST Request options
+export function getOptions(method) {
+    return {
+        method: method,
+        headers: {'Content-Type': 'application/json'},
+    }
+}
+
+
+
+// Sends Post Data to Backend
+export async function sendDataToBackend(credentials, apiRoute) {
+    try {
+        const options = getOptions('POST');
+        options['body'] = credentials;
+        const res = await fetch(apiRoute, options);
+        
+        if(!(res.ok && res.redirected)) {
+            const data = await res.json();
+            alert(data);
+        }
+        else location.replace(res.url);
+    }
+    catch(error) {
+        console.error('Error Occured in validateInput function');
+        throw error;
+    }
 }

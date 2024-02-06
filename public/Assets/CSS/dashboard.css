@@ -51,3 +51,25 @@ section button:hover {
 main {
     display: none;
 }
+
+
+
+/* Button Styles */
+.create-post-btn {
+    font-size: 1.3rem;
+    padding: 10px 10px;
+    width: 100%;
+    display: block;
+    margin: 5px 0 20px 0;
+    border-radius: var(--border-radius);
+    color: var(--primary);
+    border: none;
+    outline: none;
+    background-color: var(--light-dark);
+}
+
+.create-post-btn:hover {
+    color: var(--primary);
+    background-color: #2c100060;
+    cursor: pointer;
+}

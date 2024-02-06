@@ -1,46 +1,21 @@
 // Targeting HTML Elements
+import { dataIsNotValid, changeVitalKeyDataName, sendDataToBackend } from './helpers/helpers.js';
 const password = document.getElementById('password');
 const username = document.getElementById('username');
 const btn = document.getElementById('btn');
 
 
+// Listens for button click for Login/Signup, and Validates input data
 btn.addEventListener('click', (e) => {
     e.preventDefault();
-    validateInput(location.pathname);
+    const data = {
+        value1: username.value,
+        value2: password.value,
+        value1Msg: 'Username is Required!',
+        value2Msg: 'Password is Required!'
+    }
+    
+    if(dataIsNotValid(data)) return;
+    const credentials = changeVitalKeyDataName(data, 'Username', 'Password');
+    sendDataToBackend(credentials, `${location.pathname}/Api`);
 })
-
-
-// Login/Signup Function
-async function validateInput(apiRoute) {
-    if(username.value === '') {
-        alert("Username is Required!");
-        return;
-    }
-    else if(password.value === '') {
-        alert("Password is Required!");
-        return;
-    }
-    try {
-        const credentials = {
-            Username: username.value,
-            Password: password.value
-        }
-        const res = await fetch(apiRoute, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(credentials)
-        });
-
-        if(res.ok && res.redirected) {
-            location.replace(res.url);
-        }
-        else {
-            const data = await res.json();
-            alert(data);
-        }
-    }
-    catch(error) {
-        console.error('Error Occured in validateInput function');
-        throw error;
-    }
-}
