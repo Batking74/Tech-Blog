@@ -110,5 +110,5 @@ function completeRequest(method, apiRoute) {
     sendDataToBackend(method, data, apiRoute);
     mainContainer.style.display = 'none';
     postMainContainer.style.display = 'block';
-    // location.reload();
+    location.reload();
 }
