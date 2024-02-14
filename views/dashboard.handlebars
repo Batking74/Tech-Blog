@@ -1,5 +1,6 @@
 <div class="card">
-    <h2 class="card-header">Create New Post</h2>
+    {{#if isLoggedin}}
+    <h2 class="card-header"></h2>
     <form id="user-form" class="card-body">
         <!-- Title -->
         <label class="form-label" for="title">Title</label>
@@ -10,4 +11,5 @@
         <!-- Button -->
         <button type="submit" id="submit" class="create-post-btn">Create!</button>
     </form>
+    {{/if}}
 </div>

@@ -17,5 +17,5 @@ btn.addEventListener('click', (e) => {
     
     if(dataIsNotValid(data)) return;
     const credentials = changeVitalKeyDataName(data, 'Username', 'Password');
-    sendDataToBackend(credentials, `${location.pathname}/Api`);
+    sendDataToBackend('POST', credentials, `${location.pathname}/Api`);
 })

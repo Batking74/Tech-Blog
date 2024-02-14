@@ -67,15 +67,16 @@ export function getOptions(method) {
 
 
 // Sends Post Data to Backend
-export async function sendDataToBackend(credentials, apiRoute) {
+export async function sendDataToBackend(method, data, apiRoute) {
     try {
-        const options = getOptions('POST');
-        options['body'] = credentials;
+        const options = getOptions(method);
+        options['body'] = data;
         const res = await fetch(apiRoute, options);
         
         if(!(res.ok && res.redirected)) {
             const data = await res.json();
             alert(data);
+            return data;
         }
         else location.replace(res.url);
     }

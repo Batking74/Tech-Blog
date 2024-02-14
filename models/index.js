@@ -11,3 +11,7 @@ User.hasMany(Post, {
 Post.belongsTo(User, {
     foreignKey: 'UserID'
 })
+
+
+// Exporting Modules
+module.exports = { User, Post }

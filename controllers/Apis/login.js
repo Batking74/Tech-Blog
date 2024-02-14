@@ -68,5 +68,12 @@ login.delete('/Api/Delete/:id', async (req, res) => {
 })
 
 
+// Checking If user is logged in route
+login.get('/Api/IsloggedIn', async (req, res) => {
+    if(req.session.isLoggedIn) res.json(true);
+    else res.json(false);
+})
+
+
 // Exporting Module
 module.exports = login;
