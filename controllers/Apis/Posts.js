@@ -28,11 +28,10 @@ post.get('/Api', async (req, res) => {
 // Creates a Users Posts
 post.post('/Api/Create', async (req, res) => {
     const { Title, Content } = req.body;
-    const date = new Dayjs();
     const { dataValues } = await Post.create({
         Title: Title,
         Content: Content,
-        Date: date.format('MM/DD/YYYY'),
+        Date: Dayjs().format('MM/DD/YYYY'),
         UserID: req.session.userID
     });
     res.json('Success!');

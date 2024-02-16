@@ -43,7 +43,6 @@ async function displayPosts() {
             localStorage.setItem('AllPosts', JSON.stringify(allPosts));
         }
         for(let { Title, Date, id } of allPosts) {
-            console.log(Date)
             const postContainer = document.createElement('div');
             const titleElement = document.createElement('h3');
             const dateElement = document.createElement('h3');
