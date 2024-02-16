@@ -36,7 +36,7 @@ post.post('/Api/Create', async (req, res) => {
     });
     console.log('hiiiiiiiiiiiiiiiiiiiiiiiiiiii  ' + dayjs().format('MM/DD/YYYY'))
     console.log(dataValues.Date + '    NAAAAAAAAAAAAAAZZ')
-    res.json('Success!');
+    res.json(dayjs().format('MM/DD/YYYY'));
 })
 
 
