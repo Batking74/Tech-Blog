@@ -38,23 +38,23 @@ startNewPostBtn.addEventListener('click', async () => {
 async function displayPosts() {
     try {
         const allPosts = await (await fetch('/Posts/Api/?queryAll=false')).json();
+        console.log(allPosts)
         if(!localStorage.getItem('AllPosts')) {
             localStorage.setItem('AllPosts', JSON.stringify(allPosts));
         }
         for(let { Title, Date, id } of allPosts) {
+            console.log(Date)
             const postContainer = document.createElement('div');
             const titleElement = document.createElement('h3');
             const dateElement = document.createElement('h3');
-            const title = Title
-            const date = Date
             postContainer.setAttribute('class', 'Post-Container');
             postContainer.setAttribute('id', id);
             titleElement.setAttribute('id', id);
             dateElement.setAttribute('id', id);
             postContainer.append(titleElement);
             postContainer.append(dateElement);
-            titleElement.append(title);
-            dateElement.append(date);
+            titleElement.append(Title);
+            dateElement.append(Date);
             postMainContainer.append(postContainer);
             
             postContainer.addEventListener('click', (event) => validate(event.target));
@@ -110,5 +110,5 @@ function completeRequest(method, apiRoute) {
     sendDataToBackend(method, data, apiRoute);
     mainContainer.style.display = 'none';
     postMainContainer.style.display = 'block';
-    // location.reload();
+    location.reload();
 }

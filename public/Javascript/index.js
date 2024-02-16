@@ -15,7 +15,6 @@ catch(error) {
 
 // Displays All Users Post in database
 function displayAllPosts(allPosts) {
-    console.log(allPosts)
     for(let { User, Title, Content, Date } of allPosts) {
         mainContainer.innerHTML += `
         <div class="card">

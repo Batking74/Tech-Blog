@@ -34,9 +34,7 @@ post.post('/Api/Create', async (req, res) => {
         Date: dayjs().format('MM/DD/YYYY'),
         UserID: req.session.userID
     });
-    console.log('hiiiiiiiiiiiiiiiiiiiiiiiiiiii  ' + dayjs().format('MM/DD/YYYY'))
-    console.log(dataValues.Date + '    NAAAAAAAAAAAAAAZZ')
-    res.json(dayjs().format('MM/DD/YYYY'));
+    res.json('Success!');
 })
 
 
