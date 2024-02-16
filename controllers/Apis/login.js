@@ -1,7 +1,7 @@
 // Importing Modules/Packages
 const { serveWebpage, withAuth } = require('../helpers/helpers');
+const { User, Post } = require('../../models');
 const login = require('express').Router();
-const User = require('../../models/User');
 
 // Rendering the Login Page for Non-Logged-In Users
 login.get('/', withAuth, (req, res) => serveWebpage(req, res, 'login'));
@@ -51,8 +51,16 @@ login.post('/Api/logout', (req, res) => {
 login.delete('/Api/Delete/:id', async (req, res) => {
     const userID = parseInt(req.params.id.replace(':', ''));
     try {
+        const deletedPosts = await Post.findAll({ where: { UserID: userID } });
+
+        // Delete all posts
+        await Promise.all(deletedPosts.map(async (post) => {
+            await post.destroy();
+        }))
+        // Delete User Account
         const deletedUser = await User.destroy({ where: { id: userID } });
-        if (deletedUser) {
+        if (deletedUser && deletedPosts) {
+            // Kill Session
             req.session.destroy((error) => {
                 if(error) {
                     return res.send(JSON.stringify('Internal Server Error'));
