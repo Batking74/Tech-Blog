@@ -75,7 +75,7 @@ export async function sendDataToBackend(method, data, apiRoute) {
         
         if(!(res.ok && res.redirected)) {
             const data = await res.json();
-            // alert(data);
+            alert(data);
             return data;
         }
         else location.replace(res.url);
