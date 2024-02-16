@@ -3,7 +3,7 @@
 ### Description
 Welcome to my CMS-Style Blog Site project! This project aims to create a dynamic and engaging platform for developers to showcase their expertise, share insights through blog posts, and participate in interactive discussions. Similar to popular platforms like Wordpress, our web application is designed for simplicity, efficiency, and a seamless user experience.
 
-![Image of Nazir's Tech Blog Project](#)
+![Image of Nazir's Tech Blog Project](./public/Assets/Tech%20Blog%20-%202_16_2024.webp)
 
 ### What was my motivation?
 My drive behind embarking on this project stemmed from a strong aspiration to elevate my skills in Sequelize and deepen my understanding of Object-Relational Mapping (ORM) concepts. Additionally, I aimed to gain hands-on experience with the intricacies of the MVC design structure, seeking to enhance my proficiency in web development, continious learning, and problem solving.
