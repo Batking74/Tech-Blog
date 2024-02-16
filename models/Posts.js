@@ -1,6 +1,8 @@
 // Importing Modules/Packages
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Dayjs = require('dayjs');
+const date = new Dayjs();
 
 
 // Creating A new Table in mySQL Database
@@ -24,6 +26,7 @@ Post.init({
     },
     Date: {
         type: DataTypes.STRING,
+        defaultValue: date.format('MM/DD/YYYY'),
         allowNull: false,
     },
     Title: {
