@@ -25,8 +25,7 @@ Post.init({
     },
     Date: {
         type: DataTypes.STRING,
-        defaultValue: Dayjs().format('MM/DD/YYYY'),
-        allowNull: false,
+        allowNull: false
     },
     Title: {
         type: DataTypes.STRING,
