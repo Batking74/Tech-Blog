@@ -28,6 +28,7 @@ post.get('/Api', async (req, res) => {
 post.post('/Api/Create', async (req, res) => {
     try {
         const { Title, Content, Date } = req.body;
+        console.log(Date)
         await Post.create({ Title, Content, Date, UserID: req.session.userID });
         res.json('Success!');
     }
