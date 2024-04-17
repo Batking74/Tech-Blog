@@ -1,7 +1,6 @@
 // Importing Modules/Packages
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const Dayjs = require('dayjs');
 
 
 // Creating A new Table in mySQL Database

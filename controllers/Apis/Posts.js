@@ -1,7 +1,6 @@
 // Importing Modules/Packages
 const { User, Post } = require('../../models');
 const post = require('express').Router();
-const Dayjs = require('dayjs');
 
 
 // Gets All Posts
@@ -27,14 +26,15 @@ post.get('/Api', async (req, res) => {
 
 // Creates a Users Posts
 post.post('/Api/Create', async (req, res) => {
-    const { Title, Content } = req.body;
-    const { dataValues } = await Post.create({
-        Title: Title,
-        Content: Content,
-        Date: Dayjs().format('MM/DD/YYYY'),
-        UserID: req.session.userID
-    });
-    res.json('Success!');
+    try {
+        const { Title, Content, Date } = req.body;
+        await Post.create({ Title, Content, Date, UserID: req.session.userID });
+        res.json('Success!');
+    }
+    catch(error) {
+        console.error('Error in /Api/Create Route!');
+        throw error;
+    }
 })
 
 

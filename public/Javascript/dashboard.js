@@ -38,7 +38,6 @@ startNewPostBtn.addEventListener('click', async () => {
 async function displayPosts() {
     try {
         const allPosts = await (await fetch('/Posts/Api/?queryAll=false')).json();
-        console.log(allPosts)
         if(!localStorage.getItem('AllPosts')) {
             localStorage.setItem('AllPosts', JSON.stringify(allPosts));
         }
@@ -105,9 +104,9 @@ function completeRequest(method, apiRoute) {
         value2Msg: 'Must have Content!'
     }
     if(dataIsNotValid(usersInput)) return;
-    const data = changeVitalKeyDataName(usersInput, 'Title', 'Content');
-    sendDataToBackend(method, data, apiRoute);
+    const data = changeVitalKeyDataName(usersInput, 'Title', 'Content', method);
+    sendDataToBackend(method, data, apiRoute, method);
     mainContainer.style.display = 'none';
     postMainContainer.style.display = 'block';
-    location.reload();
+    // location.reload();
 }

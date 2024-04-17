@@ -45,13 +45,14 @@ export function dataIsNotValid({ value1, value2, value1Msg, value2Msg }) {
 
 
 // Changes the name of only vital keys needed to make a request to the server, and deletes data that isn't needed
-export function changeVitalKeyDataName(data, value1NewName, value2NewName) {
+export function changeVitalKeyDataName(data, value1NewName, value2NewName, method) {
     data[value1NewName] = data['value1'];
     data[value2NewName] = data['value2'];
     delete data.value1;
     delete data.value2;
     delete data.value1Msg;
     delete data.value2Msg;
+    if(method != 'PUT' && method != undefined) data['Date'] = dayjs().format('MM/DD/YYYY');
     return JSON.stringify(data);
 }
 
