@@ -105,7 +105,6 @@ function completeRequest(method, apiRoute) {
     }
     if(dataIsNotValid(usersInput)) return;
     const data = changeVitalKeyDataName(usersInput, 'Title', 'Content', method);
-    console.log(data)
     sendDataToBackend(method, data, apiRoute, method);
     mainContainer.style.display = 'none';
     postMainContainer.style.display = 'block';

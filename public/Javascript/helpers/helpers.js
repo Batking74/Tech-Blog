@@ -52,11 +52,7 @@ export function changeVitalKeyDataName(data, value1NewName, value2NewName, metho
     delete data.value2;
     delete data.value1Msg;
     delete data.value2Msg;
-    if(method != 'PUT' && method != undefined) {
-        data['Date'] = dayjs().format('MM/DD/YYYY');
-        console.log(dayjs().format('MM/DD/YYYY'))
-    }
-    console.log(data)
+    if(method != 'PUT' && method != undefined) data['Date'] = dayjs().format('MM/DD/YYYY');
     return JSON.stringify(data);
 }
 
