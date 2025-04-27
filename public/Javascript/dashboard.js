@@ -71,8 +71,8 @@ function validate({ textContent, id }) {
     if(textContent === 'Update Post') {
         completeRequest('PUT', `/Posts/Api/:${updateID}`);
         let allPosts = JSON.parse(localStorage.getItem('AllPosts'));
-        allPosts[updateID - 1].Title = title.value;
-        allPosts[updateID - 1].Content = content.value;
+        allPosts[updateID - 1].Title = title.value.trim();
+        allPosts[updateID - 1].Content = content.value.trim();
         localStorage.setItem('AllPosts', JSON.stringify(allPosts));
     }
     else if(textContent != 'Create!') {

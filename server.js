@@ -10,7 +10,7 @@ require('dotenv').config();
 
 
 // Server Port
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 7000;
 
 
 // Middleware
@@ -30,12 +30,35 @@ app.use(express.json());
 app.use(controllers);
 
 
-// Runs my application locally or deploys on hosting service (Heroku)
-database.sync({ force: false }).then(() => {
-    app.listen(PORT, () => {
-        console.log(`Sucessfully listening on port ${PORT}`);
-    })
-})
+// Runs my application locally or deploys on hosting service (Linode)
+const waitForDB = async () => {
+    const maxRetries = 10;
+    let retries = 0;
+    while (retries < maxRetries) {
+        try {
+            // Waiting for database to be running
+            await database.authenticate();
+            console.log("✅ Database connected successfully. ✅");
+
+            // Starting up MySQL Server
+            database.sync({ force: false }).then(() => {
+                // Starting up Backend Node Server
+                app.listen(PORT, () => {
+                    console.log(`Listening on port ${PORT}`);
+                });
+            });
+            return;
+        }
+        catch (err) {
+            console.log('⏳ Waiting for DB to be ready...');
+            retries++;
+            await new Promise(res => setTimeout(res, 3000));
+        }
+    }
+    console.error('❌ Could not connect to database. Exiting.');
+};
+
+waitForDB();
 
 
 // Exporting Module
