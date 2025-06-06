@@ -10,7 +10,7 @@ require('dotenv').config();
 
 
 // Server Port
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 2000;
 
 
 // Middleware
