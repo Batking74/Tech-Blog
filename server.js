@@ -5,6 +5,7 @@ const database = require('./config/connection');
 const session = require('express-session');
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 const app = express();
 require('dotenv').config();
 
@@ -22,6 +23,7 @@ app.use(session({
     saveUninitialized: false
 }))
 
+app.use(cors({ origin: 'https://techblog.nazirsportfolio.com', credentials: true }));
 app.engine('handlebars', handlebars.engine());
 app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
