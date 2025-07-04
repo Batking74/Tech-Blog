@@ -1,4 +1,13 @@
-/node_modules
-.env
-.env.me
+.git
+.vscode
+README.md
+Dockerfile
+.gitignore
+node_modules
+.dockerignore
 package-lock.json
+docker-compose.yaml
+.env.me
+.env.vault
+.env.previous
+server.test.js

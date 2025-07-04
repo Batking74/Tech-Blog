@@ -18,7 +18,7 @@ Throughout the development process, I acquired a comprehensive understanding of 
 - CSS
 - JavaScript
 - Node.js
-- Sequelize
+- MySQL/Sequelize (ORM)
 - Handlebars
 
 
@@ -30,6 +30,12 @@ Throughout the development process, I acquired a comprehensive understanding of 
 - express-session
 - jest
 - supertest
+
+## Tech added after Bootcamp
+- Docker
+- Nginx
+- Cloudflare CDN
+- Linode/Linux (Ubuntu)
 
 
 ## Tests
@@ -45,6 +51,6 @@ Time:        1.499 s, estimated 4 s
 ```
 
 
-Deployed Site: https://naz-tech-blog-b1b13db75bbc.herokuapp.com/
+Deployed Site: https://techblog.nazirsportfolio.com
 
 GitHub Repo: https://github.com/Batking74/Tech-Blog
